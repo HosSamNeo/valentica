@@ -39,8 +39,6 @@ const productsList = [
 ];
 const myModal = document.getElementById("myModal");
 const modalContent = document.getElementById("modal-content");
-const addButton = document.getElementById("add");
-const removeButton = document.getElementById("remove");
 const badge = document.getElementById("badge");
 const cartMenu = document.getElementById("cart-menu");
 const productsContainer = document.getElementById("products-container");
@@ -77,8 +75,8 @@ const closeModal = () => {
 // add to cart
 function addToCart(i) {
   products[i].addedToCart = true;
-  addButton.style.display = "none";
-  removeButton.style.display = "block";
+  document.getElementById("add").style.display = "none";
+  document.getElementById("remove").style.display = "block";
   displayProducts();
   localStorage.setItem("productsList", JSON.stringify(products));
 }
@@ -86,8 +84,8 @@ function addToCart(i) {
 // remove from cart
 function removeFromCart(i) {
   products[i].addedToCart = false;
-  addButton.style.display = "block";
-  removeButton.style.display = "none";
+  document.getElementById("add").style.display = "block";
+  document.getElementById("remove").style.display = "none";
   displayProducts();
   localStorage.setItem("productsList", JSON.stringify(products));
 }
