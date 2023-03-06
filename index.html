@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentica store</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Animals Store</h1>
+      <div class="cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span id="badge" class="badge">11</span>
+        <div id="cart-menu" class="cart-menu"></div>
+      </div>
+    </nav>
+    <div class="products">
+      <div id="products-container" class="container"></div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div id="modal-content" class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
