@@ -61,6 +61,9 @@ const openModal = (i) => {
   <div class="info">
     <p>${products[i].name}</p>
     <p>$ ${products[i].price}</p>
+    <button id="modalAdd" onclick="addToCart(${i})">add to cart</button>
+    <button id="modalRemove" onclick="removeFromCart(${i})" style="display: none">Remove from cart</button>
+          </div>
   `;
   modalContent.innerHTML += elements;
 };
@@ -76,7 +79,13 @@ const closeModal = () => {
 function addToCart(i) {
   products[i].addedToCart = true;
   document.getElementById("add").style.display = "none";
+  if (document.getElementById("modalAdd")) {
+    document.getElementById("modalAdd").style.display = "none";
+  }
   document.getElementById("remove").style.display = "block";
+  if (document.getElementById("modalAdd")) {
+    document.getElementById("modalRemove").style.display = "block";
+  }
   displayProducts();
   localStorage.setItem("productsList", JSON.stringify(products));
 }
@@ -85,7 +94,13 @@ function addToCart(i) {
 function removeFromCart(i) {
   products[i].addedToCart = false;
   document.getElementById("add").style.display = "block";
+  if (document.getElementById("modalAdd")) {
+    document.getElementById("modalAdd").style.display = "block";
+  }
   document.getElementById("remove").style.display = "none";
+  if (document.getElementById("modalRemove")) {
+    document.getElementById("modalRemove").style.display = "none";
+  }
   displayProducts();
   localStorage.setItem("productsList", JSON.stringify(products));
 }
@@ -102,6 +117,7 @@ const displayCart = () => {
           <div class="info">
             <p>${products[i].name}</p>
             <p>$ ${products[i].price}</p>
+            <button onclick="removeFromCart(${i})">Remove from cart</button>
           </div>
         </div>
     `;
